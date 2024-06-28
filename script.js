@@ -19,11 +19,15 @@ function timeFuntion() {
   sec.style.transform = `rotate(${sRotation}deg)`;
   if (h > 12) {
     hour12 = h % 12;
-  }
-  if (hour12 < 10) {
-    document.querySelector("#digital-hour").innerHTML = `0${hour12}`;
+    if (hour12 < 10) {
+      document.querySelector("#digital-hour").innerHTML = `0${hour12}`;
+    } else {
+      document.querySelector("#digital-hour").innerHTML = hour12;
+    }
+  } else if (h < 10) {
+    document.querySelector("#digital-hour").innerHTML = `0${h}`;
   } else {
-    document.querySelector("#digital-hour").innerHTML = hour12;
+    document.querySelector("#digital-hour").innerHTML = h;
   }
 
   if (m < 10) {
